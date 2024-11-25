@@ -1,0 +1,37 @@
+<h1>Bienvenido Hola Mundo</h1>
+
+<!-- Etiqueta para el campo de entrada -->
+<label for="UserId">Ingrese User ID:</label>
+
+<input 
+  type="number" 
+  [(ngModel)]="UserId" 
+  placeholder="Ingrese su ID de Usuario"
+/>
+<button (click)="getUserByID()">Ir a Detalles del Usuario</button>
+
+<div *ngIf="user">
+    <p>Hello Word {{ user.name }}</p>
+</div>
+
+
+<!--
+<h3>API EN PRODUCCIÓN</h3>
+<table  class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.city }}</td>
+          </tr>
+    </tbody>
+  </table>
+
+-->
