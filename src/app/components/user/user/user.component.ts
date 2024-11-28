@@ -57,9 +57,9 @@ export class UserComponent implements OnInit {
       this.userService.getUserById(this.UserId).subscribe({
         next: (result) => {
           this.user = result;
-          console.log('Redirigiendo a:', `/user/${this.UserId}`);
-          // Redirige al detalle del usuario
-          this.router.navigate(['/user', this.UserId]);
+          console.log('Redirigiendo a:', `/user-detail/${this.UserId}`);
+          // Redirige al detalle del usuario directamente sin llamar al servicio
+         this.router.navigate(['/user-detail', this.UserId]);
         },
         error: (err) => {
           console.error('Error al obtener el usuario:', err);

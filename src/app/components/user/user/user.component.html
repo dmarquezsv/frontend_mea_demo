@@ -1,4 +1,5 @@
-<h1>Bienvenido Hola Mundo</h1>
+
+<h1>Saludo</h1>
 
 <!-- Etiqueta para el campo de entrada -->
 <label for="UserId">Ingrese User ID:</label>
@@ -8,11 +9,9 @@
   [(ngModel)]="UserId" 
   placeholder="Ingrese su ID de Usuario"
 />
-<button (click)="getUserByID()">Ir a Detalles del Usuario</button>
+<button (click)="getUserByID()">Saludar</button>
 
-<div *ngIf="user">
-    <p>Hello Word {{ user.name }}</p>
-</div>
+
 
 
 <!--

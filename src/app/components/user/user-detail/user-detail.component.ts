@@ -18,16 +18,28 @@ export class UserDetailComponent implements OnInit {
 
   user: UserInterface | null = null; // Almacena el usuario seleccionado
   private route = inject(ActivatedRoute); // Inyección de ActivatedRoute
-  private router = inject(Router); // Inyección de Router para redirección
+  
 
   // Inyecta el servicio UserService
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const userId = this.route.snapshot.paramMap.get('id');
+
+    // Escuchar cambios en el parámetro 'id' de la URL
+    this.route.params.subscribe(params => {
+      const userId = +params['id']; // Obtiene el parámetro 'id' como número
+      if (userId) {
+        this.getUserByID(Number(userId)); // Llama a la función para obtener datos del usuario
+      }
+    });
+  /*  
+  const userId = this.route.snapshot.paramMap.get('id');
   if (userId) {
     this.getUserByID(Number(userId)); // Llama al método para obtener el usuario
+  }else{
+    console.error('No se encontró un ID váilido en la URL');
   }
+*/
   }
   
   getUserByID(userId: number): void {
